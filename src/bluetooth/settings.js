@@ -1,0 +1,4 @@
+const settings = {
+	      ssid: '',
+	      country: '',
+	    }
