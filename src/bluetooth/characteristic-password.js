@@ -48,7 +48,7 @@ network={
         console.log('restart pi');
         setTimeout(()=> {
             exec('shutdown -r  now');
-        }, 1000);
+        }, 1500);
         callback(this.RESULT_SUCCESS);
     }
 
