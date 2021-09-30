@@ -21,7 +21,7 @@ module.exports = CustomCharacteristic;
 
 function getModel() {
     let fs = require('fs');
-    const path = '/home/pi/ws/bluf/model.txt';
+    const path = 'model.txt';
     return(fs.readFileSync(path, 'utf8'));
 }
 

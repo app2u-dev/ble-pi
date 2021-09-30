@@ -1,6 +1,8 @@
 const bleno = require('@abandonware/bleno');
 const characteristicSsid = require('./characteristic-ssid');
+const characteristicSsidNotify = require('./characteristic-ssid-notify');
 const characteristicIp = require('./characteristic-ip');
+const characteristicQr = require('./characteristic-qr');
 const characteristicCountry = require('./characteristic-country');
 const characteristicTimezone = require('./characteristic-timezone');
 const characteristicPassword = require('./characteristic-password');
@@ -16,6 +18,8 @@ const kServiceUuidOne = '27cf08c1-076a-41af-becd-02ed6f6109b9';
 const serviceUuids = [kServiceUuidOne];
 // default uuid: 'fd758b93-0bfa-4c52-8af0-85845a74a606', - not work
 // ssid: 'fd758b93-0bfa-4c52-8af0-85845a74a607', RW
+// ssid-notify: 'fd758b93-0bfa-4c52-8af0-85845a74a617', N
+// qr: 'fd758b93-0bfa-4c52-8af0-85845a74a621', W
 // ip: 'fd758b93-0bfa-4c52-8af0-85845a74a608', R
 // country: 'fd758b93-0bfa-4c52-8af0-85845a74a609', RW
 // timezone: 'fd758b93-0bfa-4c52-8af0-85845a74a610', RW
@@ -70,6 +74,8 @@ const listenOnadvertisingStart = () =>
           uuid: kServiceUuidOne,
           characteristics: [
             new characteristicSsid(settings),
+            new characteristicSsidNotify(settings),
+            new characteristicQr(settings),
             new characteristicIp(),
             new characteristicCountry(settings),
             new characteristicTimezone(settings),

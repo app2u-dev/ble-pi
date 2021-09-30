@@ -21,7 +21,7 @@ module.exports = CustomCharacteristic;
 
 function getAlias() {
     let fs = require('fs');
-    const path = '/home/pi/ws/bluf/alias.txt';
+    const path = 'alias.txt';
     return(fs.readFileSync(path, 'utf8'));
 }
 
@@ -58,8 +58,8 @@ CustomCharacteristic.prototype.onWriteRequest = function (data, offset, withoutR
   this._value = data;
   let msg = data.toString();
   let alias = msg.trim();
-  fs.writeFileSync('/home/pi/ws/bluf/alias.txt', alias);
-  let aliasSetOwnerCmd = 'chown pi:users /home/pi/ws/bluf/alias.txt';
+  fs.writeFileSync('alias.txt', alias);
+  let aliasSetOwnerCmd = 'chown pi:users alias.txt';
   exec(aliasSetOwnerCmd, (error, timezone, stderr) => {
     if (error) {
       console.error(`set alias chown error: ${error.message}`);
