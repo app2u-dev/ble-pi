@@ -6,6 +6,7 @@ const characteristicQr = require('./characteristic-qr');
 const characteristicCountry = require('./characteristic-country');
 const characteristicTimezone = require('./characteristic-timezone');
 const characteristicPassword = require('./characteristic-password');
+const characteristicReset = require('./characteristic-reset');
 const characteristicSN = require('./characteristic-sn');
 const characteristicAlias = require('./characteristic-alias');
 const characteristicModel = require('./characteristic-model');
@@ -24,6 +25,7 @@ const serviceUuids = [kServiceUuidOne];
 // country: 'fd758b93-0bfa-4c52-8af0-85845a74a609', RW
 // timezone: 'fd758b93-0bfa-4c52-8af0-85845a74a610', RW
 // password: 'fd758b93-0bfa-4c52-8af0-85845a74a611', W
+// password: 'fd758b93-0bfa-4c52-8af0-85845a74a631', W
 // serial_num: 'fd758b93-0bfa-4c52-8af0-85845a74a615', R
 // alias: 'fd758b93-0bfa-4c52-8af0-85845a74a613', R
 // model: 'fd758b93-0bfa-4c52-8af0-85845a74a615', R
@@ -80,6 +82,7 @@ const listenOnadvertisingStart = () =>
             new characteristicCountry(settings),
             new characteristicTimezone(settings),
             new characteristicPassword(settings),
+            new characteristicReset(settings),
             new characteristicSN(),
             new characteristicAlias(),
             new characteristicModel(),
